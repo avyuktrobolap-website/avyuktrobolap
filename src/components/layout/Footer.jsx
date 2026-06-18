@@ -283,7 +283,7 @@ export default function Footer() {
           {/* Col 2 — Practice Locations */}
           <div className="flex flex-col gap-5">
             <h3 className="text-[#F5B800] text-[11px] tracking-[0.22em] font-semibold uppercase">
-              Practice Locations
+              Practice Location
             </h3>
             <ul className="flex flex-col gap-4">
               {PRACTICE_LOCATIONS.map((item, i) => (

@@ -8,7 +8,8 @@ const ABOUT_SLIDES = [
   {
     src: "/images/dr-training.png",
     alt: "Dr. Abhishek Jaimalani - International fellowship with Prof. Francesco Corcione, Naples, Italy",
-    caption: "International fellowship with Prof. Francesco Corcione, Naples, Italy",
+    caption:
+      "International fellowship with Prof. Francesco Corcione, Naples, Italy",
     tag: "Fellowship Training",
   },
   {
@@ -36,10 +37,23 @@ const ABOUT_SLIDES = [
     tag: "FMAS Convocation",
   },
   {
-    src: "/images/Media coverage.jpeg",
+    src: "/images/Media coverage (2).jpeg",
+    // public\images\Untitled design (1).jpg
     alt: "Dr. Abhishek Jaimalani - Media coverage",
     caption: "Media coverage",
     tag: "Media & Press",
+  },
+  {
+    src: "/images/with_patient_1.jpeg",
+    alt: "Dr. Abhishek Jaimalani - Happy Patient",
+    caption: "Happy Patient",
+    tag: "Patient Success Story",
+  },
+  {
+    src: "/images/with_patient_2.jpeg",
+    alt: "Dr. Abhishek Jaimalani - Happy Patient",
+    caption: "Happy Patient",
+    tag: "Patient Success Story",
   },
 ];
 
@@ -94,6 +108,9 @@ export default function AboutSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [fade, setFade] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const isActive = isHovered || isClicked;
 
   const intervalRef = useRef(null);
   const total = ABOUT_SLIDES.length;
@@ -113,6 +130,10 @@ export default function AboutSection() {
       setFade(true);
     }, 200);
   };
+
+  useEffect(() => {
+    setIsClicked(false);
+  }, [currentIndex]);
 
   useEffect(() => {
     if (isHovered) {
@@ -149,6 +170,7 @@ export default function AboutSection() {
                 className="relative overflow-hidden group border border-white/10 bg-[#060f1a]"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={() => setIsClicked((prev) => !prev)}
               >
                 <div
                   className="relative w-full aspect-[4/5]"
@@ -161,13 +183,21 @@ export default function AboutSection() {
                     src={ABOUT_SLIDES[currentIndex].src}
                     alt={ABOUT_SLIDES[currentIndex].alt}
                     fill
-                    className="object-cover object-center transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0"
+                    className={`object-cover object-center transition-all duration-700 ease-in-out grayscale ${
+                      isActive ? "grayscale-0" : ""
+                    }`}
+                    // className="object-cover object-center transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0"
                     sizes="(max-width: 768px) 100vw, 500px"
                     priority={currentIndex === 0}
                   />
 
                   {/* Subtle dark overlay that fades out on hover */}
-                  <div className="absolute inset-0 bg-[#080d1a]/25 group-hover:bg-transparent transition-all duration-700 pointer-events-none" />
+                  {/* <div className="absolute inset-0 bg-[#080d1a]/25 group-hover:bg-transparent transition-all duration-700 pointer-events-none" /> */}
+                  <div
+                    className={`absolute inset-0 bg-[#080d1a]/25 transition-all duration-700 pointer-events-none ${
+                      isActive ? "bg-transparent" : ""
+                    }`}
+                  />
 
                   {/* Dark gradient for text legibility */}
                   <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#080d1a]/95 via-[#080d1a]/70 to-transparent pointer-events-none" />
@@ -200,7 +230,9 @@ export default function AboutSection() {
                       }, 200);
                     }}
                     className={`h-[4px] rounded-full transition-all duration-300 ${
-                      idx === currentIndex ? "w-6 bg-[#F5B800]" : "w-2 bg-white/20 hover:bg-white/40"
+                      idx === currentIndex
+                        ? "w-6 bg-[#F5B800]"
+                        : "w-2 bg-white/20 hover:bg-white/40"
                     }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />

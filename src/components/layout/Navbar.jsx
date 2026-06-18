@@ -119,11 +119,11 @@ export default function Navbar() {
               alt="Avyukt Robolap"
               width={56}
               height={40}
-              className="h-10 md:h-14 w-auto object-contain"
+              className="h-14 md:h-14 w-auto object-contain"
               priority
             />
             <div
-              className={`text-[#F5B800] font-semibold tracking-[0.08em] text-[18px] md:text-[35px] leading-none`}
+              className={`text-[#F5B800] font-semibold tracking-[0.08em] text-[22px] md:text-[35px] leading-none`}
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               Avyukt Robolap

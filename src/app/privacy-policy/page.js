@@ -563,7 +563,12 @@ export default function PrivacyPolicy() {
       <div className="pp-page">
         {/* Hero */}
         <div className="pp-hero">
-          <div className="pp-hero-eyebrow">Avyukt Robolap</div>
+          <div
+            className="pp-hero-eyebrow"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
+            Avyukt Robolap
+          </div>
           <h1>
             Privacy <span>Policy</span>
           </h1>

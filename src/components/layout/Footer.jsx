@@ -344,7 +344,8 @@ export default function Footer() {
           </p>
           <p
             className="text-white/30 text-[11px] tracking-[0.14em] uppercase text-center sm:text-right"
-            style={{ fontFamily: "var(--font-playfair)" }}
+            // style={{ fontFamily: "var(--font-playfair)" }}
+            style={{ fontFamily: "var(--font-playfair), serif" }}
           >
             Avyukt Robolap •{" "}
             <a

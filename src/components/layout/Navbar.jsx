@@ -123,8 +123,8 @@ export default function Navbar() {
               priority
             />
             <div
-              className={`text-[#F5B800] font-semibold tracking-[0.08em] text-[22px] md:text-[35px] leading-none`}
-              style={{ fontFamily: "var(--font-playfair)" }}
+              className={`text-[#F5B800] font-semibold tracking-[0.08em] text-[19px] md:text-[35px] leading-none uppercase`}
+              style={{ fontFamily: "var(--font-playfair), serif" }}
             >
               Avyukt Robolap
             </div>

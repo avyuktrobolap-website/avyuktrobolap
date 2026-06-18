@@ -37,14 +37,15 @@ const ABOUT_SLIDES = [
     tag: "FMAS Convocation",
   },
   {
-    src: "/images/Media coverage (2).jpeg",
-    // public\images\Untitled design (1).jpg
+    src: "/images/Untitled design (3).jpg",
+    // public\images\Untitled design (2).jpg
+    // public\images\Media coverage(1).jpg
     alt: "Dr. Abhishek Jaimalani - Media coverage",
     caption: "Media coverage",
     tag: "Media & Press",
   },
   {
-    src: "/images/with_patient_1.jpeg",
+    src: "/images/with_patient_1_1.jpeg",
     alt: "Dr. Abhishek Jaimalani - Happy Patient",
     caption: "Happy Patient",
     tag: "Patient Success Story",

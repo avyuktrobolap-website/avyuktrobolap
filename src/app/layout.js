@@ -1,28 +1,19 @@
-import { Playfair_Display, Dancing_Script } from "next/font/google";
+import { Playfair_Display, Dancing_Script, Montserrat } from "next/font/google";
 import CursorDot from "@/components/ui/CursorDot";
 import IntroAnimation from "@/components/ui/IntroAnimation";
 import { DEFAULT_METADATA, VIEWPORT, PERSON_SCHEMA } from "@/constants/seo";
 import "./globals.css";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
-// import { Playfair_Display } from "next/font/google";
-// const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700"] });
-// import { Playfair_Display } from "next/font/google";
-// import IntroAnimation from "@/components/ui/IntroAnimation";
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-playfair",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
 });
 
 const dancing = Dancing_Script({
@@ -94,7 +85,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dancing.variable}`}
+      className={`${playfair.variable} ${dancing.variable} ${montserrat.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">

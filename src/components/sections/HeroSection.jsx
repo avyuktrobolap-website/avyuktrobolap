@@ -625,7 +625,7 @@ export default function HeroSection() {
             />
             <StatItem
               value={12}
-              suffix=""
+              suffix="+"
               label="Years Exp"
               started={statsStarted}
             />

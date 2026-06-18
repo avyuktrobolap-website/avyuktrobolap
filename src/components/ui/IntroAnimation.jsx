@@ -5,15 +5,15 @@ export default function IntroAnimation() {
   const [phase, setPhase] = useState("visible"); // 'visible' | 'slideUp' | 'done'
 
   useEffect(() => {
-    // After 3s (draw 2.5s + small pause), start slide up
+    // After logo reveal + text fade-in + small pause, start slide up
     const slideTimer = setTimeout(() => {
       setPhase("slideUp");
-    }, 3000);
+    }, 2800);
 
     // After slide up animation (0.8s), remove from DOM
     const doneTimer = setTimeout(() => {
       setPhase("done");
-    }, 3800);
+    }, 3600);
 
     return () => {
       clearTimeout(slideTimer);
@@ -35,45 +35,34 @@ export default function IntroAnimation() {
             : "none",
       }}
     >
-      {/* Logo SVG */}
-      <div className="w-48 h-48">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          {/* Main A + robotic arm shape */}
-          <path
-            d="M60 160 L100 40 L140 160 M80 100 L120 100 M100 40 C100 40 130 30 140 50 C150 70 130 90 100 80"
-            fill="none"
-            stroke="#D4A843"
-            strokeDasharray="600"
-            strokeDashoffset="600"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="3"
-            style={{ animation: "drawMain 3s ease forwards 0.5s" }}
-          />
-          {/* Secondary thread detail */}
-          <path
-            d="M100 40 Q110 20 120 40 T140 40"
-            fill="none"
-            opacity="0.6"
-            stroke="#D4A843"
-            strokeDasharray="100"
-            strokeDashoffset="100"
-            strokeWidth="1.5"
-            style={{ animation: "drawSecondary 1.5s ease forwards 1.5s" }}
-          />
-        </svg>
+      {/* Logo image */}
+      <div
+        className="w-48 h-auto"
+        style={{
+          opacity: 0,
+          transform: "scale(0.85)",
+          filter: "drop-shadow(0 0 18px rgba(212, 168, 67, 0.35))",
+          animation: "logoReveal 1s ease forwards 0.3s",
+        }}
+      >
+        <img
+          src="/avyukt-icon.png"
+          alt="Avyukt Robolap"
+          className="w-full h-full object-contain"
+        />
       </div>
 
-      {/* Text — appears after logo draw finishes */}
+      {/* Text — appears after logo reveal finishes */}
       <div
         style={{
           opacity: 0,
           letterSpacing: "0.25em",
-          animation: "fadeInText 0.8s ease forwards 2.6s",
+          paddingLeft: "2.5em",
+          animation: "fadeInText 0.8s ease forwards 1.5s",
         }}
       >
         <p
-          className="text-[#D4A843] text-sm font-semibold tracking-[0.25em] uppercase"
+          className="text-[#D4A843] text-sm font-semibold uppercase text-center"
           style={{ fontFamily: "var(--font-playfair), serif" }}
         >
           AVYUKT ROBOLAP
@@ -82,19 +71,15 @@ export default function IntroAnimation() {
           className="mt-2 mx-auto h-[1px] bg-[#D4A843]"
           style={{
             width: 0,
-            animation: "expandLine 0.6s ease forwards 3s",
+            animation: "expandLine 0.6s ease forwards 1.9s",
           }}
         />
       </div>
 
       <style>{`
-        @keyframes drawMain {
-          from { stroke-dashoffset: 600; }
-          to   { stroke-dashoffset: 0; }
-        }
-        @keyframes drawSecondary {
-          from { stroke-dashoffset: 100; }
-          to   { stroke-dashoffset: 0; }
+        @keyframes logoReveal {
+          from { opacity: 0; transform: scale(0.85); }
+          to   { opacity: 1; transform: scale(1); }
         }
         @keyframes fadeInText {
           from { opacity: 0; transform: translateY(8px); }

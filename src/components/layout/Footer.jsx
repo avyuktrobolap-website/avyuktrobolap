@@ -240,13 +240,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1.5fr_1.5fr] gap-10 lg:gap-16">
           {/* Col 1 — Brand */}
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-3">
-              <ScalpelIcon />
+            <div className="flex items-center gap-1">
+              {/* <ScalpelIcon /> */}
               <span
                 className="text-[#F5B800] font-bold tracking-[0.12em] text-[15px] uppercase"
                 style={{ fontFamily: "var(--font-playfair)" }}
+                // style={{ fontFamily: "var(--font-montserrat)" }}
               >
-                Avyukt Robolap
+                Avyukt
+              </span>
+              <span
+                className="text-[#F5B800] font-bold tracking-[0.12em] text-[15px] uppercase"
+                style={{ fontFamily: "var(--font-playfair)" }}
+                // style={{ fontFamily: "var(--font-montserrat)" }}
+              >
+                Robolap
               </span>
             </div>
 
@@ -334,13 +342,17 @@ export default function Footer() {
           <p className="text-white/30 text-[11px] tracking-[0.14em] uppercase text-center sm:text-left">
             © {new Date().getFullYear()} Dr. Abhishek Jaimalani.
           </p>
-          <p className="text-white/30 text-[11px] tracking-[0.14em] uppercase text-center sm:text-right">
+          <p
+            className="text-white/30 text-[11px] tracking-[0.14em] uppercase text-center sm:text-right"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
             Avyukt Robolap •{" "}
             <a
               href="https://instagram.com/avyukt_robolap"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#F5B800]/70 transition-colors duration-200"
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
               @avyukt_robolap
             </a>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Great_Vibes } from "next/font/google";
+import Image from "next/image";
 
 const greatVibes = Great_Vibes({
   subsets: ["latin"],
@@ -92,20 +93,41 @@ export default function Navbar() {
             : "bg-[#080d1a]"
         }`}
       >
-        <nav className="max-w-[1400px] mx-auto px-6 md:px-10 h-[70px] flex items-center justify-between">
+        <nav className="max-w-[1400px] mx-auto px-6 md:px-10 h-[80px] flex items-center justify-between">
           {/* Logo */}
-          <Link
+          {/* <Link
             href="/"
             className="flex items-center gap-3 group"
             aria-label="Surgical Excellence - Home"
           >
-            {/* <ScalpelIcon /> */}
             <span
-              className="text-[#F5B800] font-bold tracking-[0.12em] text-[15px] md:text-[60px] md:pl-5"
+              className="text-[#F5B800] font-bold tracking-[0.12em] text-[35px] md:text-[60px] md:pl-5"
               style={{ fontFamily: "var(--font-dancing)" }}
+              // style={{ fontFamily: "var(--font-playfair)" }}
             >
               Avyukt Robolap
             </span>
+          </Link> */}
+
+          <Link
+            href="/"
+            className="flex items-center gap-1 group"
+            aria-label="Avyukt Robolap - Home"
+          >
+            <Image
+              src="/avyukt-icon.png"
+              alt="Avyukt Robolap"
+              width={56}
+              height={40}
+              className="h-10 md:h-14 w-auto object-contain"
+              priority
+            />
+            <div
+              className={`text-[#F5B800] font-semibold tracking-[0.08em] text-[18px] md:text-[35px] leading-none`}
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              Avyukt Robolap
+            </div>
           </Link>
 
           {/* Desktop Nav */}
